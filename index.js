@@ -14,34 +14,34 @@ const todoList = () => {
     };
   
     const dueToday = () => {
-      var a=all.filter(function(el) {
+      var elements=all.filter(function(el) {
           return el.dueDate=== today;
         });
 
-        return a;
+        return elements;
        
      
     };
   
     const dueLater = () => {
-      var a=all.filter(function(el) {
+      var elements=all.filter(function(el) {
         return el.dueDate=== tomorrow;
       });
 
-      return a;
+      return elements;
       
     };
   
     const toDisplayableList = (list) => {
-      let b = list
+      let items = list
       .map(
-        function(value) {
-         return `${value.completed ? "[x] " : "[ ] "}${value.title} ${
-            value.dueDate === today ? " " : value.dueDate
+        function(item) {
+         return `${item.completed ? "[x] " : "[ ] "}${item.title} ${
+            item.dueDate === today ? " " : item.dueDate
           }`}
       )
       .join("\n");
-    return b;
+    return items;
     };
   
     return { all, add, markAsComplete, overdue, dueToday, dueLater, toDisplayableList };
